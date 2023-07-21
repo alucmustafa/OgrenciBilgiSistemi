@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Proje1.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Öğrenciler</h2>
+<a href="/Ogrenci/Create" class="btn btn-primary mb-3 " title="Yeni Kayıt">
+   Yeni Kayıt
+</a>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TCKimlikNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AldigiEgitim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasariDurumu)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCKimlikNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AldigiEgitim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasariDurumu)
+            </td>
+            <td>
+                <a href="/Ogrenci/Edit/@item.Id" class="btn btn-warning btn-xs" title="Düzenle">
+                    <i class="bi bi-pencil-fill"></i> Düzenle
+                </a>
+                <a href="/Ogrenci/Details/@item.Id" class="btn btn-info btn-xs" title="Detay">
+                    <i class="bi bi-search"></i> Detay
+                </a>
+                <a href="/Ogrenci/Delete/@item.Id" class="btn btn-danger btn-xs" title="Sil">
+                    <i class="bi bi-trash-fill"></i> Sil
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
